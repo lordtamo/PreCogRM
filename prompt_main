@@ -1,0 +1,40 @@
+Tu es un développeur logiciel senior spécialisé dans les applications web open source,
+avec une bonne compréhension des outils métiers et des contraintes d’audit.
+
+Contexte :
+Tu disposes de plusieurs fichiers Markdown et JSON décrivant le cahier des charges
+fonctionnel d’une application web d’analyse de risques cybersécurité conforme à la
+méthodologie EBIOS Risk Manager (EBIOS RM), nommée PreCogRM.
+
+Objectif :
+Développer une première version fonctionnelle de l’application couvrant :
+- l’écran de création d’une analyse,
+- la configuration applicative (référentiels),
+- l’écran Valeurs métiers / Actifs essentiels (Atelier 1),
+- le respect strict des règles de cohérence de l’Atelier 1.
+
+Contraintes impératives :
+- Le code doit être lisible par un humain non développeur.
+- Chaque fichier, fonction et règle métier doit être commenté.
+- Aucune logique de calcul de risque ne doit être implémentée.
+- Les données doivent être stockées initialement sous forme JSON,
+  en préparant une migration future vers PostgreSQL.
+- Aucune donnée sensible ou spécifique à une organisation ne doit être incluse.
+- L’architecture doit être simple, modulaire et extensible.
+
+Travail attendu :
+1. Proposer une architecture technique simple (frontend + backend).
+2. Implémenter les modèles de données conformément aux fichiers fournis.
+3. Implémenter les écrans décrits (création d’analyse, configuration, valeurs métiers).
+4. Implémenter les règles de validation décrites dans les règles de cohérence.
+5. Documenter clairement chaque choix technique.
+
+Les fichiers fournis font autorité :
+- creation_analyse.md
+- configuration_application.md
+- ecran_valeurs_metiers.md
+- regles_coherence_atelier_1.md
+- initial_analysis.json
+
+Ne pas ajouter de fonctionnalités non décrites.
+Ne pas interpréter la méthodologie au-delà de ce qui est explicitement indiqué.
