@@ -1,3 +1,29 @@
+---
+
+## 🛣️ Roadmap prévisionnelle
+
+### Phase 1 — MVP fonctionnel
+- Gestion des analyses EBIOS RM
+- Ateliers 1 à 3
+- Matrices de cotation configurables
+- Collaboration simple
+- Exports exploitables
+
+### Phase 2 — Automatisation ciblée
+- Indices de maturité cyber
+- Génération de scénarios par défaut
+- Assistance au raisonnement
+- Cohérence inter‑analyses
+
+### Phase 3 — Audit et homologation
+- Dossiers d’homologation
+- Traçabilité renforcée
+- Exports formalisés
+- Usage en contexte d’audit
+
+---
+
+
 Liste des fonctionnalités attendues (base de roadmap)
 
 A. Fonctions socle (indispensables)
