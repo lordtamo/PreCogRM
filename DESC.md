@@ -1,87 +1,137 @@
-1️⃣ creation_analyse.md
-Fonction
+# Description des fichiers du projet PreCogRM
 
-Spécifie l’écran n°1 de l’application.
-Point d’entrée de toute analyse de risques EBIOS RM.
-Décrit :
+Ce fichier présente la liste des documents de conception fonctionnelle actuellement présents dans le dépôt PreCogRM.  
+Chaque fichier a une responsabilité claire et non redondante.  
+L’ensemble forme un socle cohérent permettant à un développeur ou à un LLM spécialisé de comprendre, concevoir et implémenter l’application dans le respect de la méthodologie EBIOS Risk Manager.
 
-l’identification de l’analyse,
-les responsabilités,
-le cadre et le contexte de l’analyse,
-les règles de gestion associées.
+---
 
+## 1. `DESC.md`
 
-Sert de référence pour :
+### Rôle
+Document d’orientation du dépôt.
 
-la cohérence méthodologique,
-la traçabilité,
-l’audit.
+### Fonction
+- Donner une vision d’ensemble des artefacts disponibles.
+- Expliquer la fonction de chaque fichier.
+- Servir de point d’entrée pour tout nouveau contributeur (humain ou LLM).
 
+---
 
+## 2. `creation_analyse.md`
 
-👉 Rôle dans l’application :
-Initialisation d’un dossier d’analyse EBIOS RM (statut draft).
+### Rôle
+Spécification fonctionnelle de l’écran n°1.
 
-2️⃣ configuration_application.md
-Fonction
+### Fonction
+- Décrire l’écran de **création d’une analyse de risques**.
+- Définir :
+  - l’identification de l’analyse,
+  - les responsabilités,
+  - le cadre et le contexte de l’analyse,
+  - l’existence ou non d’un DSIL.
+- Poser les métadonnées initiales (statut, version, traçabilité).
 
-Définit tous les référentiels configurables de l’application.
-Alimente les listes déroulantes utilisées dans les écrans métier.
-Couvre notamment :
+➡️ **Correspond à l’initialisation d’un dossier d’analyse EBIOS RM.**
 
-analystes,
-services,
-cadres / contextes d’analyse,
-cadres réglementaires.
+---
 
+## 3. `configuration_application.md`
 
+### Rôle
+Spécification des éléments configurables de l’application.
 
-👉 Rôle dans l’application :
-Socle transverse garantissant cohérence, évolutivité et indépendance organisationnelle.
+### Fonction
+- Définir les **référentiels transverses** utilisés dans les écrans métier.
+- Inclut notamment :
+  - analystes,
+  - services,
+  - cadres / contextes d’analyse,
+  - cadres réglementaires.
+- Garantir la cohérence et l’évolutivité des listes déroulantes.
 
-3️⃣ ecran_valeurs_metiers.md
-Fonction
+➡️ **Socle administratif et organisationnel de l’application.**
 
-Spécifie l’écran n°2 : Valeurs métiers / Actifs essentiels (Atelier 1).
-Décrit :
+---
 
-les champs métier nécessaires,
-la granularité variable,
-la justification de l’essentialité,
-le lien avec un ou plusieurs périmètres.
+## 4. `Atelier_1.md`
 
+### Rôle
+Document pivot de l’Atelier 1 EBIOS RM.
 
-Pose les bases pour les ateliers suivants sans calcul de risque.
+### Fonction
+- Décrire **la logique métier complète** de l’Atelier 1, indépendamment de toute interface.
+- Préciser :
+  - les objectifs de l’Atelier 1,
+  - les objets métiers manipulés,
+  - l’enchaînement logique des étapes,
+  - les frontières méthodologiques (ce qui est autorisé / interdit),
+  - les conditions de complétude de l’atelier.
 
-👉 Rôle dans l’application :
-Identifier ce qui a de la valeur et doit être protégé.
+➡️ **Contrat méthodologique entre EBIOS RM, l’outil et l’implémentation logicielle.**
 
-4️⃣ regles_coherence_atelier_1.md
-Fonction
+---
 
-Document normatif listant les règles méthodologiques non négociables de l’Atelier 1.
-Sert de :
+## 5. `ecran_valeurs_metiers.md`
 
-garde-fou fonctionnel,
-base de validation,
-référence en audit.
+### Rôle
+Spécification fonctionnelle de l’écran n°2.
 
+### Fonction
+- Décrire l’écran permettant de gérer les **valeurs métiers / actifs essentiels**.
+- Préciser :
+  - les champs métier nécessaires,
+  - la justification du caractère essentiel,
+  - la granularité variable,
+  - le lien avec un ou plusieurs périmètres.
+- Préparer les ateliers suivants sans introduire de calcul de risque.
 
+➡️ **Cœur métier de l’Atelier 1 : identifier ce qui a de la valeur.**
 
-👉 Rôle dans l’application :
-Empêcher toute dérive (calculs prématurés, automatisme abusif, confusion menace/valeur).
+---
 
-5️⃣ initial_analysis.json
-Fonction
+## 6. `regles_coherence_atelier_1.md`
 
-Exemple de structure de données initiale pour une analyse.
-Sert de :
+### Rôle
+Document normatif de contrôle méthodologique.
 
-données de démarrage,
-test de cohérence,
-base de migration future vers PostgreSQL.
+### Fonction
+- Énoncer les **règles de cohérence non négociables** de l’Atelier 1.
+- Empêcher toute dérive, notamment :
+  - calcul de risque prématuré,
+  - automatisation abusive,
+  - confusion entre valeur, menace et scénario.
+- Servir de base aux validations fonctionnelles et aux audits.
 
+➡️ **Garde-fou méthodologique de l’application.**
 
+---
 
-👉 Rôle dans l’application :
-Modèle de persistance minimal au lancement.
+## 7. `initial_analysis.json`
+
+### Rôle
+Modèle de données de démarrage.
+
+### Fonction
+- Fournir un exemple de **structure JSON** initiale pour une analyse.
+- Servir de :
+  - base de développement,
+  - support de tests,
+  - référence pour la migration future vers PostgreSQL.
+
+➡️ **Support technique de persistance initiale.**
+
+---
+
+## 8. Cohérence d’ensemble
+
+Pris ensemble, ces fichiers permettent :
+- de comprendre la méthodologie implémentée,
+- de développer l’application sans interprétation implicite,
+- de confier le développement à un LLM spécialisé tout en maintenant :
+  - lisibilité,
+  - traçabilité,
+  - conformité EBIOS RM,
+  - éthique open source.
+
+Tout ajout de fonctionnalité doit s’inscrire dans ce cadre documentaire.
