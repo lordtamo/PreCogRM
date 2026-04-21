@@ -1,17 +1,19 @@
 # Configuration de l’application PreCogRM
 
-Ce document définit les écrans et données nécessaires à la configuration fonctionnelle de PreCogRM.  
-La configuration permet d’alimenter les listes de sélection utilisées dans les analyses de risques.  
-Ces données sont administratives et transverses à toutes les analyses.
+Ce document décrit les éléments configurables de l’application PreCogRM.  
+La configuration fournit les référentiels utilisés dans les écrans fonctionnels, sans modifier rétroactivement les analyses existantes.  
+Ces données sont administratives, transverses et auditables.
 
 ---
 
 ## 1. Objectifs de la configuration
 
 La section configuration permet :
-- de maintenir les référentiels nécessaires au fonctionnement de l’outil,
-- d’assurer la cohérence des données saisies,
-- de garantir la traçabilité et l’auditabilité.
+
+- d’alimenter les listes déroulantes utilisées dans l’application,
+- d’assurer la cohérence des saisies,
+- de garantir la traçabilité des choix organisationnels,
+- de préparer l’automatisation future sans rigidifier la méthode.
 
 ---
 
@@ -19,21 +21,15 @@ La section configuration permet :
 
 ### Champs attendus
 
-- **Identifiant analyste**
-  - `analyst_id` : UUID (clé technique)
+- `analyst_id` : UUID (clé technique)
+- `last_name` : string
+- `first_name` : string
+- `service_name` : string
+- `is_active` : boolean
 
-- **Nom**
-  - `last_name` : string
-
-- **Prénom**
-  - `first_name` : string
-
-- **Service**
-  - `service_name` : string
-
-- **Statut**
-  - `is_active` : boolean
-  - Un analyste inactif ne peut plus être sélectionné mais reste référencé
+### Règles
+- Un analyste ne peut pas être supprimé, uniquement désactivé.
+- Les analyses existantes restent liées aux analystes désactivés.
 
 ---
 
@@ -48,41 +44,62 @@ La section configuration permet :
 
 ---
 
-## 4. Référentiel des cadres réglementaires
+## 4. Référentiel des cadres / contextes d’analyse
+
+Ce référentiel permet de définir les **types de cadre d’analyse** proposés lors de la création d’une analyse de risques.
 
 ### Champs attendus
 
 - **Identifiant**
-  - `framework_id` : UUID
+  - `analysis_context_type_id` : UUID
 
-- **Nom de la réglementation**
-  - `framework_name` : string
-
-- **Type**
-  - `framework_type` : enum (loi, norme, directive, référentiel)
+- **Libellé**
+  - `analysis_context_label` : string
+  - Exemple : "Nouvelle analyse de risques"
 
 - **Description**
-  - `framework_description` : text
+  - `analysis_context_description` : text
+  - Permet de préciser le cas d’usage
+
+- **Code fonctionnel**
+  - `analysis_context_code` : string
+  - Exemple : `new_analysis`, `accreditation_renewal`
+  - Utilisé pour la logique applicative
 
 - **Statut**
   - `is_active` : boolean
 
 ---
 
-## 5. Règles de gestion générales
+## 5. Référentiel des cadres réglementaires
 
-- Les éléments de configuration ne doivent jamais être supprimés, uniquement désactivés.
-- Les modifications doivent être historisées.
-- Les changements de configuration n’impactent pas rétroactivement les analyses existantes.
+### Champs attendus
+
+- `framework_id` : UUID
+- `framework_name` : string
+- `framework_type` : enum (loi, norme, directive, référentiel)
+- `framework_description` : text
+- `is_active` : boolean
 
 ---
 
-## 6. Prompt de génération de code (pour LLM)
+## 6. Règles de gestion générales
 
-> Tu es un développeur chargé de coder la partie configuration d’une application web.  
-> Implémente les écrans et modèles de données décrits ci‑dessus.  
+- Aucun élément de configuration ne doit être supprimé physiquement.
+- Toute modification est historisée.
+- Les changements de configuration :
+  - n’impactent pas les analyses existantes,
+  - s’appliquent uniquement aux nouvelles saisies.
+- Les référentiels doivent rester compréhensibles par un non-technicien.
+
+---
+
+## 7. Prompt de génération de code (pour LLM)
+
+> Tu es un développeur chargé d’implémenter la configuration de PreCogRM.  
+> Implémente les référentiels décrits ci-dessus avec un stockage persistant.  
 > Le code doit :
-> - être fortement commenté (logique métier, règles de gestion),
-> - prévoir l’extensibilité des référentiels,
-> - éviter toute suppression destructrice des données,
-> - rester compatible avec une future base PostgreSQL.
+> - être fortement commenté (règles métier et usages),
+> - empêcher toute suppression destructive,
+> - permettre l’activation / désactivation des valeurs,
+> - rester compatible avec une migration vers PostgreSQL.
