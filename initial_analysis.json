@@ -1,0 +1,25 @@
+{
+  "analysis_id": "uuid",
+  "analysis_name": "",
+  "beneficiary_name": "",
+  "analysis_service": "",
+  "analyst_id": "",
+  "start_date": "",
+  "analysis_status": "draft",
+  "analysis_version": "v1.0",
+  "scope": {
+    "scope_name": "",
+    "scope_type": "",
+    "scope_summary": "",
+    "scope_description": "",
+    "out_of_scope": ""
+  },
+  "analysis_context": "",
+  "regulatory_frameworks": [],
+  "audit_metadata": {
+    "created_at": "",
+    "created_by": "",
+    "updated_at": "",
+    "updated_by": ""
+  }
+}
