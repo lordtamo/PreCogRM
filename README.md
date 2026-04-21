@@ -1,4 +1,7 @@
 # PreCogRM
+********************
+Projet lancé sur élan de motivation, on verra si je garde le rythme 😉
+********************
 
 PreCogRM est un outil open source d’aide à la réalisation d’analyses de risques cybersécurité selon la méthodologie **EBIOS Risk Manager (EBIOS RM)**.
 
